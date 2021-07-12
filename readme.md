@@ -22,7 +22,8 @@ Os dados da avaliação são enviados via POST para o backend.
 
 **A única configuração *obrigatória* que você precisa fazer é informar a URL/endereço do seu servidor que vai receber a avaliação do usuário. Essa configuração pode ser feita no arquivo:**
 ```bash
-assets/scripts/config.js```
+assets/scripts/config.js
+```
 
 #### Dependências
 JavaScript: [VueJS](https://vuejs.org/), [jQuery](https://jquery.com/), [Lodash](https://lodash.com/).
