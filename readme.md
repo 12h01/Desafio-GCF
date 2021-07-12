@@ -10,7 +10,7 @@ Clique para assistir o vídeo de demonstração...
 
 ...ou clique no link para acessar online: [www.jpedro.tech/desafiogcf](https://www.jpedro.tech/desafiogcf/) 
 
-Essa demonstração está hospedada online, porém como foi solicitado no desafio você pode executar o back-end localmente. Basta configurá-lo para receber a avaliação por meio de uma requisição POST. Em caso de dúvidas, contate-me pelo [WhatsApp](https://wa.me/558888180440/).
+Essa demonstração está hospedada online, porém como foi solicitado no desafio ela envia a avaliação do usuário para uma base de dados local (o back-end, no meu caso desenvolvido em Python e SQLite3), onde é possível fazer a consulta local. Em caso de dúvidas, contate-me pelo [WhatsApp](https://wa.me/558888180440/).
 
 ## Instalação
 
