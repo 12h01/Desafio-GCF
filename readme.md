@@ -10,7 +10,7 @@ Clique para assistir o vídeo de demonstração...
 
 ...ou clique no link para acessar online: [www.jpedro.tech/desafiogcf](https://www.jpedro.tech/desafiogcf/) 
 
-Essa demonstração está hospedada online porém se conecta localmente ao meu servidor (back-end), então caso esteja offline no momento, me avise pelo [WhatsApp](https://wa.me/558888180440/) para que eu possa deixar o back-end ativo.
+Essa demonstração está hospedada online, porém como foi solicitado no desafio você pode executar o back-end localmente. Basta configurá-lo para receber a avaliação por meio de uma requisição POST. Em caso de dúvidas, contate-me pelo [WhatsApp](https://wa.me/558888180440/).
 
 ## Instalação
 
