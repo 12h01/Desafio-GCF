@@ -4,10 +4,11 @@
 Clima Atual é um web app que utiliza dados do Yandex.Weather para mostrar informações do clima em uma dada cidade informada pelo usuário. Após verificar os dados, o usuário pode avaliar a informação numa escala de 1 a 5. Essa informação será enviada para um back-end (online ou local).
 
 ## Demonstração
+Clique na imagem para assistir o vídeo de demonstração...
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/uG6TI951Cno?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Clima Atual](http://img.youtube.com/vi/uG6TI951Cno/0.jpg)](http://www.youtube.com/watch?v=uG6TI951Cno "Clima Atual")
 
-Clique no link para acessar online: [www.jpedro.tech/desafiogcf](https://www.jpedro.tech/desafiogcf/) 
+...ou clique no link para acessar online: [www.jpedro.tech/desafiogcf](https://www.jpedro.tech/desafiogcf/) 
 
 Essa demonstração está hospedada online porém se conecta localmente ao meu servidor (back-end), então caso esteja offline no momento, me avise pelo [WhatsApp](https://wa.me/558888180440/) para que eu possa deixar o back-end ativo.
 
