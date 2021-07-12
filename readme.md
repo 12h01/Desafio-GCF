@@ -4,7 +4,7 @@
 Clima Atual é um web app que utiliza dados do Yandex.Weather para mostrar informações do clima em uma dada cidade informada pelo usuário. Após verificar os dados, o usuário pode avaliar a informação numa escala de 1 a 5. Essa informação será enviada para um back-end (online ou local).
 
 ## Demonstração
-Clique na imagem para assistir o vídeo de demonstração...
+Clique para assistir o vídeo de demonstração...
 
 [![Clima Atual](http://img.youtube.com/vi/uG6TI951Cno/0.jpg)](http://www.youtube.com/watch?v=uG6TI951Cno "Clima Atual")
 
@@ -20,7 +20,9 @@ A interface front-end foi desenvolvida em JavaScript, portanto pode ser usada ta
 
 Os dados da avaliação são enviados via POST para o backend.
 
-A única configuração *obrigatória* que você precisa fazer é informar a URL/endereço do seu servidor que vai receber a avaliação do usuário. Essa configuração pode ser feita no arquivo "assets/scripts/config.js".
+**A única configuração *obrigatória* que você precisa fazer é informar a URL/endereço do seu servidor que vai receber a avaliação do usuário. Essa configuração pode ser feita no arquivo:**
+```bash
+assets/scripts/config.js```
 
 #### Dependências
 JavaScript: [VueJS](https://vuejs.org/), [jQuery](https://jquery.com/), [Lodash](https://lodash.com/).
