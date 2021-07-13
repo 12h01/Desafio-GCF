@@ -229,7 +229,7 @@ input {
   width:96%;  
 }
 
-@media only screen and (max-width:520px) {
+@media only screen and (max-width:640px) {
   .avalia2{
     width:63%;
   }

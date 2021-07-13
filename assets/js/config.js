@@ -1,7 +1,21 @@
 let configs = {};
-configs.base_url = window.location.href, configs.endpoint_pesquisa = "search", configs.endpoint_avalia = "new_record", configs.endpoint_clima = "weather"
 
-const debug_mode = false;
+/* A URL que está configurada para receber as requisições */
+configs.base_url = "http://127.0.0.1"
+
+/* Endpoint de pesquisa.
+ * Não estou fazendo a requisição diretamente no JS para evitar,
+ * entre outras coisas, a exposição da chave de API. 
+ * Estou basicamente fazendo a pesquisa de cidades no back-end e 
+ * retornando apenas os dados para o front-end. */
+configs.endpoint_pesquisa = "/search"
+
+/* Endpoint que retorna os dados do clima. Mesmo caso anterior,
+ * não quero expor a chave de API no front-end. */
+configs.endpoint_clima = "/weather"
+
+/* Endpoint que recebe a avaliação do usuário através de uma requisição POST. */
+configs.endpoint_avalia = "/new_record"
 
 const icons = {
   "Limpo": `wi-${mode}-${sun}`,
@@ -13,51 +27,45 @@ const icons = {
   "Chuva": `wi-${mode}-rain`
 };
 
-$("#cidade").on("keyup", _.debounce(pesquisa, 1e3)), $("#cidade").on("keypress",
-  function() { $(".loading").slideDown(), $(".resultados-pesquisa").slideUp()
-});
+$("#cidade").on("keyup", _.debounce(pesquisa, 1e3)), 
+  $("#cidade").on("keypress",function() { $(".loading").slideDown(), $(".resultados-pesquisa").slideUp()});
 
 function avaliar(c) {
   var a = document.querySelector(".rating"),
     b = parseInt(c.getAttribute("value"));
   for (e = 0; e < b; e++) {
     a.children[e].classList.add("clicked");
-    for (var d = b; 4 >= d; d++) a.children[d].classList.contains(
-      "clicked") && a.children[d].classList.remove("clicked")
+    for (var d = b; 4 >= d; d++) 
+      a.children[d].classList.contains("clicked") && a.children[d].classList.remove("clicked")
   }
   
   configs.nota = b
-  console.log(configs.nota)
 }
 
 const load = (url, json_data) => $.ajax({
-    type: "POST",
-    url: configs.base_url+url,
-    data: JSON.stringify(json_data),
-    contentType: "application/json; charset=utf-8",
-    dataType: "json"
-  })
+  type: "POST",
+  url: configs.base_url+url,
+  data: JSON.stringify(json_data),
+  contentType: "application/json; charset=utf-8",
+  dataType: "json"
+})
 
 function pesquisa() {
   let a = $("#cidade").val();
-  1 > a.length 
-    ? console.log("Nada a pesquisar!") 
-    : busca(a), $(".loading").slideUp()
+  if(a.length > 1) busca(a), $(".loading").slideUp()
 }
 
 const busca = a => {
-  console.log("Pesquisando..."), $("footer").fadeOut();
+  $("footer").fadeOut()
 
   load(configs.endpoint_pesquisa, {
     query: a
   }).then(a => {
-    $(".resultados-pesquisa").html(""), $(".clima").slideUp(),
-    $(".resultados-pesquisa").slideUp(), console.log(Object.entries(a.data).length);
+    $(".resultados-pesquisa").html("")
+    $(".clima").slideUp(), $(".resultados-pesquisa").slideUp()
     
-    for (x of Object.entries(a.data)){
-      elm = "<div onclick='clima(\"" + x[1] + "\",\"" + x[0] + "\")'>" + x[0] + "</div>"
-      $(".resultados-pesquisa").append(elm);
-    }
+    for (x of Object.entries(a.data))
+      $(".resultados-pesquisa").append("<div onclick='clima(\"" + x[1] + "\",\"" + x[0] + "\")'>" + x[0] + "</div>");
     
     $(".resultados-pesquisa").slideDown()
   })
@@ -75,9 +83,7 @@ function clima(a, b) {
     $("#vento").text(a.data.wind), $("#previsao").html("");
     
     for (x of a.data.next_days) dia = x.date.split(" ").join(" de "), 
-      console.log(x.prediction),
-      elm = `<div class="col-3"><div class="tl">${x.weekday}, ${dia}<\/div><div class="middle"><i class="wi ${icons[x.prediction]}"><\/i> ${parseInt(x.degree)}ºC<\/div><\/div>`,
-      $("#previsao").append(elm);
+      $("#previsao").append(`<div class="col-3"><div class="tl">${x.weekday}, ${dia}<\/div><div class="middle"><i class="wi ${icons[x.prediction]}"><\/i> ${parseInt(x.degree)}ºC<\/div><\/div>`);
 
     len = $('#previsao .col-3').length % 3
 
